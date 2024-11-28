@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import MultiCheck from "./List";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const items = {
+        food: ["burger", "pizza", "pasta", "panipuri"],
+        clothes: ["shirt", "pant", "trouser", "jeans"],
+        gadgets: ["phone", "laptop", "tablet"],
+    };
+
+    return (
+        <div style={{ padding: "20px" }}>
+            <ul>
+                {Object.entries(items).map(([key, value]) => {
+                    return (
+                        <MultiCheck parentLabel={key} childOptions={value} />
+                    );
+                })}
+            </ul>
+        </div>
+    );
+};
 
 export default App;
